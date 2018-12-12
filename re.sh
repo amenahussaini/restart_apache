@@ -5,7 +5,7 @@ COMMAND="$2"
 
 if [ $# -ne 2 ]
 then
-    echo "$o requires two parameters {virtual-host} {restart|reload}"
+    echo "ERROR: $o requires two parameters {virtual-host} {restart|reload}"
     exit 1
 fi
 
@@ -17,7 +17,7 @@ then
     # Disable a vhost configuration
     sudo a2dissite "$CONFIG"
     sudo service apache2 "$COMMAND"
-    
+
     # Enable a vhost configuration
     sudo a2ensite "$CONFIG"
     sudo service apache2 "$COMMAND"
